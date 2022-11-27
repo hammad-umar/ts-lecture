@@ -72,3 +72,15 @@ const calculatePayout = (song: Song): number => {
 const printSong = (song: Song): void => {
   console.log(`${song.title} - ${song.credits.singer}`)
 }
+
+// 7. Optional fields in Type Aliases.
+// -> We can mark fields optional in Type Aliases using "?".
+
+type Person = {
+  name: string
+  age: number
+  address?: string
+}
+
+const firstPerson: Person = { name: 'John', age: 42 }
+const secondPerson: Person = { name: 'Ali', age: 30, address: 'XYZ...' }
