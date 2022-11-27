@@ -68,3 +68,19 @@ const colors = ['red', 'green', 'blue', 'yellow', 'magenta']
 colors.map((color) => {
   return color.toString()
 })
+
+// 4. The "void" Type for functions.
+// -> "void" is a return type for functions that's mean the function will
+// return nothing.
+// -> Most of the time TypeScript can infer the "void" type on it's own.
+
+const annoyUser = (numOfTimes: number): void => {
+  for (let i = 0; i < numOfTimes; i++) {
+    console.log('Hi!!!')
+  }
+}
+
+const printTwice = function () {
+  console.log('Hi!!!')
+  console.log('Hi!!!')
+}
