@@ -102,3 +102,42 @@ console.log(user.id)
 // ERROR - Cannot assign to 'id' because it is a read-only property.
 
 // user.id = 123
+
+// 9. Intersection Types.
+// -> We can combine more than one type into one type using "&".
+
+type Cat = {
+  numLives: number
+}
+
+type Dog = {
+  bread: string
+}
+
+type CatDog = Cat & Dog
+
+const myCatDog: CatDog = {
+  numLives: 10,
+  bread: 'Husky',
+}
+
+// -> We can also extend a intersection type by adding a new property.
+
+type Color = {
+  code: string
+}
+
+type Circle = {
+  radius: number
+}
+
+type ColorfulCircle = Color &
+  Circle & {
+    length: number
+  }
+
+const myColorfulCircle: ColorfulCircle = {
+  code: '#333',
+  radius: 250,
+  length: 200,
+}
