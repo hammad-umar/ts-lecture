@@ -38,3 +38,24 @@ gameOver = false
 
 // => Compiling the TypeScript Code into JavaScript using this command
 // tsc 01-type-annotations/variables.ts
+
+// Type Inference
+
+// It's a TypeScript compiler ability to infer the types on it's own.
+// TypeScript is very intelligent, it remember's the value type even if
+// you didn't provide a type annotation.
+// Most of the time when we declare a variable we didn't annotate it.
+
+let numOfLives = 20
+numOfLives = 18
+
+// ERROR - Type 'string' is not assignable to type 'number'.
+
+// numOfLives = '10'
+
+let isFunny = true
+isFunny = false
+
+// ERROR - Type 'string' is not assignable to type 'boolean'.
+
+// isFunny = 'true'
