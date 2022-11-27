@@ -84,3 +84,21 @@ type Person = {
 
 const firstPerson: Person = { name: 'John', age: 42 }
 const secondPerson: Person = { name: 'Ali', age: 30, address: 'XYZ...' }
+
+// 8. The "readonly" modifier.
+
+type User = {
+  readonly id: number
+  username: string
+}
+
+const user: User = {
+  id: 1,
+  username: 'Tony',
+}
+
+console.log(user.id)
+
+// ERROR - Cannot assign to 'id' because it is a read-only property.
+
+// user.id = 123
