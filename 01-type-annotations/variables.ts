@@ -59,3 +59,22 @@ isFunny = false
 // ERROR - Type 'string' is not assignable to type 'boolean'.
 
 // isFunny = 'true'
+
+// The "any" Type
+
+// It's an escape hatch!
+// It turns OFF type checking for variable so you can do your thing.
+// NOTE: It sort of defeats the purpose of TS and TYPES, so use it sparingly!
+
+let isAuthenticated: any = true
+
+// We can reassign it any value
+
+isAuthenticated = null
+isAuthenticated = undefined
+isAuthenticated = 0
+isAuthenticated = 'YES!!!'
+
+// We can also access any property that does not exist.
+
+isAuthenticated.toUpperCase()
