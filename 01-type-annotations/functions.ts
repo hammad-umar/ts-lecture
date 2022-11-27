@@ -40,3 +40,21 @@ const showMovie = (movieTitle: string = 'Stranger Things') => {
 
 showMovie() // Stranger Things
 showMovie('In Time') // In Time
+
+// 2. Annotating function return type.
+// TypeScript can also infer function return type on it's own.
+// NOTE: -> I prefer to annotate it explicitly (Personal Opinion).
+
+const add = (numberOne: number, numberTwo: number): number => {
+  return numberOne + numberTwo
+}
+
+// string | number -> It's a union type we'll discuss it later.
+
+const randomNumber = (num: number) => {
+  if (Math.random() < 0.5) {
+    return num.toString()
+  }
+
+  return num
+}
