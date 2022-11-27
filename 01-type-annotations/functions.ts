@@ -58,3 +58,13 @@ const randomNumber = (num: number) => {
 
   return num
 }
+
+// 3. Anonymous functions Contextual Typing.
+// TypeScript can infer the type of color on it's own, because of how an
+// unnamed function is going to be called.
+
+const colors = ['red', 'green', 'blue', 'yellow', 'magenta']
+
+colors.map((color) => {
+  return color.toString()
+})
