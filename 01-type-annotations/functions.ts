@@ -84,3 +84,18 @@ const printTwice = function () {
   console.log('Hi!!!')
   console.log('Hi!!!')
 }
+
+// 5. The "never" Type.
+// -> "never" type represent values that never occur. We might use it to
+// annotate function that always throws an exception, or a function that
+// never finishes executing.
+
+const giveError = (error: string): never => {
+  throw new Error(error)
+}
+
+const neverStop = (): never => {
+  while (true) {
+    console.log("I'm still going!!!")
+  }
+}
