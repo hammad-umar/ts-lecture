@@ -50,3 +50,25 @@ function doublePoint(point: Point): Point {
     y: point.y * point.y,
   }
 }
+
+// 6. Annotations for Nested Objects.
+// -> Nested object means object within an object.
+// -> In real world most of the time we deal with nested objects.
+
+type Song = {
+  title: string
+  price: number
+  numOfStreams: number
+  credits: {
+    singer: string
+    songWriter: string
+  }
+}
+
+const calculatePayout = (song: Song): number => {
+  return song.price * song.numOfStreams
+}
+
+const printSong = (song: Song): void => {
+  console.log(`${song.title} - ${song.credits.singer}`)
+}
