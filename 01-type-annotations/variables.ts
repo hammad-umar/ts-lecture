@@ -14,3 +14,24 @@ movieTitle = 'Dark Knight'
 // an error.
 
 // movie.upper()
+
+// 2. Numbers and Booleans
+
+// In many programming languages there are more than one type for numbers
+// i.e., int, float.
+// But in JavaScript as well as in TypeScript numbers are just numbers.
+
+let myAge: number = 23
+myAge += 20
+myAge = 30
+
+// CAN'T reassign to a different type.
+
+// myAge = '42'
+
+let gameOver: boolean = true
+gameOver = false
+
+// CAN'T reassign to a different type.
+
+// gameOver = 'true'
