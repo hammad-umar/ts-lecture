@@ -78,3 +78,16 @@ isAuthenticated = 'YES!!!'
 // We can also access any property that does not exist.
 
 isAuthenticated.toUpperCase()
+
+// 3. Delayed Initialization and Implicit "any".
+
+// Example
+
+const movies = ['Aliens', 'Arrival', 'Titanic', 'Jeeper Creepers']
+let foundMovie: string
+
+for (let movie of movies) {
+  if (movie === 'Arrival') {
+    foundMovie = movie
+  }
+}
