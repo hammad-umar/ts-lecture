@@ -35,3 +35,18 @@ const giveCoordinates = (): { width: number; height: number } => {
 
 const coords = { x: 254.2, y: 300.67, width: 150, height: 300 }
 printRandomCoords(coords)
+
+// 5. Type Aliases.
+// We can create a resuable types with "Type Aliases" and use it where we want.
+
+type Point = {
+  x: number
+  y: number
+}
+
+function doublePoint(point: Point): Point {
+  return {
+    x: point.x * point.x,
+    y: point.y * point.y,
+  }
+}
