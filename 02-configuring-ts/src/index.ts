@@ -26,3 +26,7 @@ const norma: Chicken = {
 
 // "outDir" option in tsconfig.json
 // -> We use it to specify where want to spit out the compiled JS Code.
+
+// "target" option in tsconfig.json
+// -> We use it to tell the compiler that which version of JS we want.
+// i.e., es3, es5, es6 etc
