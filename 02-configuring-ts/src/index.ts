@@ -30,3 +30,6 @@ const norma: Chicken = {
 // "target" option in tsconfig.json
 // -> We use it to tell the compiler that which version of JS we want.
 // i.e., es3, es5, es6 etc
+
+// "strict" option in tsconfig.json
+// -> Turn "ONN" all the strict type-checking options.
