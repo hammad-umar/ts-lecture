@@ -23,3 +23,6 @@ const norma: Chicken = {
 // "include" and "exclude" option in tsconfig.json
 // -> In "include" we specify array of files or patterns we want to compile.
 // -> In "excluide" we specify array of files or patterns we don't want to compile.
+
+// "outDir" option in tsconfig.json
+// -> We use it to specify where want to spit out the compiled JS Code.
