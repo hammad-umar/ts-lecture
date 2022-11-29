@@ -96,3 +96,40 @@ class Jacket {
 }
 const jacketOne = new Jacket('Prada', 'Men Jacket', '...');
 jacketOne.print();
+// Abstract Class in TS.
+// -> Abstract classes are only exclusive to TypeScript.
+// -> We can mark a class with "abstract" keyword to make it abstract class.
+// -> We can not instantiate an abstract class.
+// -> The main purpose of the abstract class is to make fields / methods
+// required for child classes and we can also add extra functionality.
+class Employee {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    printFullName() {
+        console.log(`Full Name Is: ${this.firstName} ${this.lastName}`);
+    }
+}
+class PartTimeEmployee extends Employee {
+    constructor(firstName, lastName, salary) {
+        super(firstName, lastName);
+        this.salary = salary;
+    }
+    getPay() {
+        return this.salary;
+    }
+}
+class FullTimeEmployee extends Employee {
+    constructor(firstName, lastName, hourlyRate, hoursWorked) {
+        super(firstName, lastName);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+    getPay() {
+        return this.hourlyRate * this.hoursWorked;
+    }
+}
+const fullTimeEmployee = new FullTimeEmployee('John', 'Doe', 100, 7);
+fullTimeEmployee.printFullName();
+console.log(fullTimeEmployee.getPay());

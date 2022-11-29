@@ -146,3 +146,51 @@ class Jacket implements Base, Printable {
 
 const jacketOne = new Jacket('Prada', 'Men Jacket', '...')
 jacketOne.print()
+
+// Abstract Class in TS.
+// -> Abstract classes are only exclusive to TypeScript.
+// -> We can mark a class with "abstract" keyword to make it abstract class.
+// -> We can not instantiate an abstract class.
+// -> The main purpose of the abstract class is to make fields / methods
+// required for child classes and we can also add extra functionality.
+
+abstract class Employee {
+  constructor(public firstName: string, public lastName: string) {}
+
+  abstract getPay(): number
+
+  printFullName(): void {
+    console.log(`Full Name Is: ${this.firstName} ${this.lastName}`)
+  }
+}
+
+class PartTimeEmployee extends Employee {
+  constructor(firstName: string, lastName: string, private salary: number) {
+    super(firstName, lastName)
+  }
+
+  getPay(): number {
+    return this.salary
+  }
+}
+
+class FullTimeEmployee extends Employee {
+  constructor(
+    firstName: string,
+    lastName: string,
+    private hourlyRate: number,
+    private hoursWorked: number
+  ) {
+    super(firstName, lastName)
+  }
+
+  getPay(): number {
+    return this.hourlyRate * this.hoursWorked
+  }
+}
+
+const fullTimeEmployee = new FullTimeEmployee('John', 'Doe', 100, 7)
+
+fullTimeEmployee.printFullName()
+
+console.log(fullTimeEmployee.getPay())
