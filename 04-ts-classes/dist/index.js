@@ -52,12 +52,47 @@ class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        // Protected Modifier.
+        // -> When we define a property / method with a protected modifier it
+        // means we can have access to it in this class and in a child class
+        // but not everywhere.
+        this.secret = '******';
     }
     printAge() {
         console.log(`Age is: ${this.age}`);
+    }
+}
+class SuperPerson extends Person {
+    constructor() {
+        super(...arguments);
+        this.isSuperPerson = true;
+    }
+    changeSecret() {
+        this.secret = '&&&&&********%%%%%';
     }
 }
 const personOne = new Person('John', 'Doe');
 personOne.printAge();
 // -> If we try to access private field we can get an error.
 // personOne.age
+const superPerson = new SuperPerson('Super', 'Person', 24);
+superPerson.changeSecret();
+class Product {
+    constructor(title, description) {
+        this.title = title;
+        this.description = description;
+    }
+}
+class Jacket {
+    // We can also add additional properties and methods
+    constructor(brand, title, description) {
+        this.brand = brand;
+        this.title = title;
+        this.description = description;
+    }
+    print() {
+        console.log(`${this.brand} - ${this.title}`);
+    }
+}
+const jacketOne = new Jacket('Prada', 'Men Jacket', '...');
+jacketOne.print();

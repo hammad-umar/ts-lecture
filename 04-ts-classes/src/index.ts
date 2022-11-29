@@ -112,3 +112,37 @@ personOne.printAge()
 const superPerson = new SuperPerson('Super', 'Person', 24)
 
 superPerson.changeSecret()
+
+// Interface with Classes.
+// -> Previosly, we saw that we can define the structure of object literals
+// using interfaces.
+// -> Now, we can also see how to define the shapes of classes using interfaces.
+
+interface Base {
+  title: string
+  description: string
+}
+
+interface Printable {
+  print: () => void
+}
+
+class Product implements Base {
+  constructor(public title: string, public description: string) {}
+}
+
+class Jacket implements Base, Printable {
+  // We can also add additional properties and methods
+  constructor(
+    public brand: string,
+    public title: string,
+    public description: string
+  ) {}
+
+  print(): void {
+    console.log(`${this.brand} - ${this.title}`)
+  }
+}
+
+const jacketOne = new Jacket('Prada', 'Men Jacket', '...')
+jacketOne.print()
