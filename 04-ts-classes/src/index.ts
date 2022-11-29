@@ -25,13 +25,29 @@ class Player {
   // -> We can also rely on type inference in a class when are defining a field
   // -> When a field is not known by a TypeScript then we annotate it.
   // -> We can also define a field like this and hardcode a value to it.
-  score: number = 0
+  private _score: number = 0
 
   constructor(first: string, last: string) {
     this.first = first
     this.last = last
 
     this.printSecret()
+  }
+
+  // We can also use getters and setters in TS classes just like JS classes.
+  get fullName(): string {
+    return `${this.first} ${this.last}`
+  }
+
+  get score(): number {
+    return this._score
+  }
+
+  set score(updatedScore: number) {
+    if (updatedScore < 0) {
+      throw new Error('Score must be positive!')
+    }
+    this._score = updatedScore
   }
 
   // Private methods.
@@ -52,6 +68,13 @@ const player = new Player('A', 'B')
 // player.printSecret()
 
 // Alternative Syntax Parameters Properties Shorthand.
+
+// -> We can access setters and getters.
+player.fullName
+player.score
+player.score = 10
+
+console.log(player.score)
 
 class Person {
   constructor(
