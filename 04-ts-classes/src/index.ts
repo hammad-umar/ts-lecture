@@ -7,7 +7,14 @@ class Player {
   // Read-Only modifier
   // -> It is exclusive to only TypeScript, by using it we can make a field readonly.
   readonly first: string
-  readonly last: string
+
+  // Public modifier.
+  // -> It is exclusive to TypeScript only, In TS all the fields are public
+  // by default.
+  // -> It means we can access the fields outside of a class.
+  // -> There is no need to tell the TypeScript that this field or method is
+  // public because by default all the methods or properties are public.
+  public readonly last: string
 
   // Class Fields
   // -> We can also rely on type inference in a class when are defining a field
