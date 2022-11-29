@@ -4,15 +4,22 @@ interface Todo {
   isCompleted: boolean
 }
 
-const todos: Todo[] = []
-
 const inputEl = document.getElementById('input')! as HTMLInputElement
 const todoFormEl = document.getElementById('todoForm')! as HTMLFormElement
 const todoListContainerEl = document.getElementById(
   'todoList'
 ) as HTMLUListElement
 
-const createTodo = (todo: Todo): void => {
+const todos: Todo[] = readTodos()
+todos.forEach(createTodo)
+
+function readTodos(): Todo[] {
+  const todosJSON = localStorage.getItem('todos')
+  if (todosJSON === null) return []
+  return JSON.parse(todosJSON)
+}
+
+function createTodo(todo: Todo): void {
   const todoItemEl = document.createElement('li')
   todoItemEl.textContent = todo.text
 
@@ -23,7 +30,7 @@ const createTodo = (todo: Todo): void => {
   todoListContainerEl.appendChild(todoItemCheckboxEl)
 }
 
-const handleSubmit = (e: SubmitEvent) => {
+function handleSubmit(e: SubmitEvent): void {
   e.preventDefault()
 
   const newTodo: Todo = {
@@ -32,8 +39,10 @@ const handleSubmit = (e: SubmitEvent) => {
     isCompleted: false,
   }
 
+  todos.push(newTodo)
   createTodo(newTodo)
 
+  localStorage.setItem('todos', JSON.stringify(todos))
   inputEl.value = ''
 }
 
