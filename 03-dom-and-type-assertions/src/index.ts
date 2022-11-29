@@ -1,2 +1,2 @@
-console.log('Working!!!')
-console.log('HELLO!!!')
+const btn = document.getElementById('btn')
+console.log(btn)
