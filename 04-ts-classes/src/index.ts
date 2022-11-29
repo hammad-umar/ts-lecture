@@ -16,6 +16,11 @@ class Player {
   // public because by default all the methods or properties are public.
   public readonly last: string
 
+  // Private modifier.
+  // -> It is exclusive to TypeScript only.
+  // -> Private fields / methods are only accessible with in a class.
+  private secret: string = 'Some Secret!'
+
   // Class Fields
   // -> We can also rely on type inference in a class when are defining a field
   // -> When a field is not known by a TypeScript then we annotate it.
@@ -25,6 +30,13 @@ class Player {
   constructor(first: string, last: string) {
     this.first = first
     this.last = last
+
+    this.printSecret()
+  }
+
+  // Private methods.
+  private printSecret() {
+    console.log('SECRET IS: ', this.secret)
   }
 }
 
@@ -33,3 +45,8 @@ const player = new Player('A', 'B')
 // ERROR - Cannot assign to 'first' because it is a read-only property.
 
 // player.first = 'Ali'
+
+// We can not access private fields / methods outside of a class.
+
+// player.secret
+// player.printSecret()
