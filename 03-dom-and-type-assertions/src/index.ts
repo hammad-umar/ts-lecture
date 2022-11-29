@@ -1,13 +1,24 @@
-const buttonEl = document.getElementById('btn')! as HTMLButtonElement
 const inputEl = document.getElementById('input')! as HTMLInputElement
-const todoForm = document.getElementById('todoForm')! as HTMLFormElement
+const todoFormEl = document.getElementById('todoForm')! as HTMLFormElement
+const todoListContainerEl = document.getElementById(
+  'todoList'
+) as HTMLUListElement
 
-todoForm.addEventListener('submit', (e) => {
+const handleSubmit = (e: SubmitEvent) => {
   e.preventDefault()
-  console.log('SUBMITTED!')
-})
 
-// buttonEl.addEventListener('click', () => {
-//   alert(inputEl.value)
-//   inputEl.value = ''
-// })
+  const todoText = inputEl.value
+
+  const todoItemEl = document.createElement('li')
+  todoItemEl.textContent = todoText
+
+  const todoItemCheckboxEl = document.createElement('input')
+  todoItemCheckboxEl.type = 'checkbox'
+
+  todoListContainerEl.appendChild(todoItemEl)
+  todoListContainerEl.appendChild(todoItemCheckboxEl)
+
+  inputEl.value = ''
+}
+
+todoFormEl.addEventListener('submit', handleSubmit)
