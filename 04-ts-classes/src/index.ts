@@ -77,6 +77,12 @@ player.score = 10
 console.log(player.score)
 
 class Person {
+  // Protected Modifier.
+  // -> When we define a property / method with a protected modifier it
+  // means we can have access to it in this class and in a child class
+  // but not everywhere.
+  protected secret: string = '******'
+
   constructor(
     public firstName: string,
     public lastName: string,
@@ -88,9 +94,21 @@ class Person {
   }
 }
 
+class SuperPerson extends Person {
+  isSuperPerson: boolean = true
+
+  changeSecret(): void {
+    this.secret = '&&&&&********%%%%%'
+  }
+}
+
 const personOne = new Person('John', 'Doe')
 
 personOne.printAge()
 
 // -> If we try to access private field we can get an error.
 // personOne.age
+
+const superPerson = new SuperPerson('Super', 'Person', 24)
+
+superPerson.changeSecret()
