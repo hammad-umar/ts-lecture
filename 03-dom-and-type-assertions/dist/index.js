@@ -10,11 +10,19 @@ function readTodos() {
         return [];
     return JSON.parse(todosJSON);
 }
+function saveTodos() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
 function createTodo(todo) {
     const todoItemEl = document.createElement('li');
     todoItemEl.textContent = todo.text;
     const todoItemCheckboxEl = document.createElement('input');
     todoItemCheckboxEl.type = 'checkbox';
+    todoItemCheckboxEl.checked = todo.isCompleted;
+    todoItemCheckboxEl.addEventListener('change', () => {
+        todo.isCompleted = todoItemCheckboxEl.checked;
+        saveTodos();
+    });
     todoListContainerEl.appendChild(todoItemEl);
     todoListContainerEl.appendChild(todoItemCheckboxEl);
 }
@@ -27,7 +35,7 @@ function handleSubmit(e) {
     };
     todos.push(newTodo);
     createTodo(newTodo);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    saveTodos();
     inputEl.value = '';
 }
 todoFormEl.addEventListener('submit', handleSubmit);
