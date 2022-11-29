@@ -50,3 +50,24 @@ const player = new Player('A', 'B')
 
 // player.secret
 // player.printSecret()
+
+// Alternative Syntax Parameters Properties Shorthand.
+
+class Person {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    private age: number = 10
+  ) {}
+
+  printAge(): void {
+    console.log(`Age is: ${this.age}`)
+  }
+}
+
+const personOne = new Person('John', 'Doe')
+
+personOne.printAge()
+
+// -> If we try to access private field we can get an error.
+// personOne.age

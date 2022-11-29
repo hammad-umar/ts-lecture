@@ -28,3 +28,18 @@ const player = new Player('A', 'B');
 // We can not access private fields / methods outside of a class.
 // player.secret
 // player.printSecret()
+// Alternative Syntax Parameters Properties Shorthand.
+class Person {
+    constructor(firstName, lastName, age = 10) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    printAge() {
+        console.log(`Age is: ${this.age}`);
+    }
+}
+const personOne = new Person('John', 'Doe');
+personOne.printAge();
+// -> If we try to access private field we can get an error.
+// personOne.age
