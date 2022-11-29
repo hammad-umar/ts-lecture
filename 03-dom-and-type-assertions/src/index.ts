@@ -1,7 +1,13 @@
 const buttonEl = document.getElementById('btn')! as HTMLButtonElement
 const inputEl = document.getElementById('input')! as HTMLInputElement
+const todoForm = document.getElementById('todoForm')! as HTMLFormElement
 
-buttonEl.addEventListener('click', () => {
-  alert(inputEl.value)
-  inputEl.value = ''
+todoForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  console.log('SUBMITTED!')
 })
+
+// buttonEl.addEventListener('click', () => {
+//   alert(inputEl.value)
+//   inputEl.value = ''
+// })
