@@ -4,8 +4,10 @@ console.log('TS CLASSES!')
 // -> Annotating a TypeScript class.
 
 class Player {
-  first: string
-  last: string
+  // Read-Only modifier
+  // -> It is exclusive to only TypeScript, by using it we can make a field readonly.
+  readonly first: string
+  readonly last: string
 
   // Class Fields
   // -> We can also rely on type inference in a class when are defining a field
@@ -20,3 +22,7 @@ class Player {
 }
 
 const player = new Player('A', 'B')
+
+// ERROR - Cannot assign to 'first' because it is a read-only property.
+
+// player.first = 'Ali'
